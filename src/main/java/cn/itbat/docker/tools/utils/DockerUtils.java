@@ -23,22 +23,19 @@ import static java.util.Collections.singletonList;
  * @description
  */
 public class DockerUtils {
+    private static DockerClient dockerClient;
 
-    public static void main(String[] args) {
-        DockerClient dockerClient = DockerClientBuilder.getInstance().build();
-//        Info info = dockerClient.infoCmd().exec();
-//        System.out.println(info);
-
-        List<Image> images = dockerClient.listImagesCmd().exec();
-        images.forEach(System.out::println);
-
-//        List<Container> containers = dockerClient.listContainersCmd().exec();
-//
-//        containers.forEach(System.out::println);
-
-
-        List<Container> containers = dockerClient.listContainersCmd().withStatusFilter(singletonList("exited")).exec();
-        containers.forEach(System.out::println);
+    DockerUtils() {
     }
 
+    public static DockerClient getDockerClient() {
+        if (dockerClient == null) {
+            synchronized (DockerUtils.class) {
+                if (dockerClient == null) {
+                    dockerClient = DockerClientBuilder.getInstance().build();
+                }
+            }
+        }
+        return dockerClient;
+    }
 }
