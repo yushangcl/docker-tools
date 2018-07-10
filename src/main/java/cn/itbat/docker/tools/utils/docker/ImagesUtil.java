@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
  * @date 2018/7/6 13:40
  * @description
  */
-public class ImagesUtil {
+    public class ImagesUtil {
     private static final Logger LOGGER = LoggerFactory.getLogger(ImagesUtil.class);
 
     private static DockerClient dockerClient = DockerUtils.getDockerClient();

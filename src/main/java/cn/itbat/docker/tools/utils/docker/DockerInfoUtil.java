@@ -22,7 +22,9 @@ public class DockerInfoUtil {
 
     public static void getDockerInfo() {
         Info info = dockerClient.infoCmd().exec();
+        System.out.println(info.getSystemStatus());
     }
+
 
 
 
