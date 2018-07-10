@@ -18,12 +18,8 @@ import org.springframework.cache.annotation.EnableCaching;
 @MapperScan("cn.itbat.docker.tools.mapper")
 @SpringBootApplication
 public class DockerToolsApplication {
-    private static final Logger logger = LoggerFactory.getLogger(DockerToolsApplication.class);
 
     public static void main(String[] args) {
-
-        logger.debug("DockerTools 正在启动。。。。");
         SpringApplication.run(DockerToolsApplication.class, args);
-        logger.debug("DockerTools 启动完成。。。。");
     }
 }

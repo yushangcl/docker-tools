@@ -1,6 +1,7 @@
 package cn.itbat.docker.tools.utils.docker.emuns;
 
-import lombok.Getter;
+
+import jdk.nashorn.internal.objects.annotations.Getter;
 
 /**
  *  容器的状态
@@ -13,10 +14,16 @@ public enum ContainerStatus {
     RUNNING("running", "运行"),
     EXITED("exited", "退出"),;
 
-    @Getter
     private String code;
-    @Getter
     private String desc;
+
+    public String getCode() {
+        return code;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
 
     ContainerStatus(String code, String desc) {
         this.code = code;
